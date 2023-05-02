@@ -50,10 +50,50 @@ The L298N is a dual H-Bridge motor driver which allows speed and direction contr
 
 
 
-
-
 ## PROGRAM:
+
+#define in1 6
+#define in2 7
+#define button 4
+int rotDirection = 0;
+int pressed = false;
+int bs;
+void setup() {
+  
+  pinMode(in1, OUTPUT);
+  pinMode(in2, OUTPUT);
+  pinMode(button, INPUT);
+  digitalWrite(in1, LOW);
+  digitalWrite(in2, HIGH);
+}
+void loop() {
+   
+  bs=digitalRead(button);
+  if (bs==1) {
+    digitalWrite(in1, HIGH);
+    digitalWrite(in2, LOW);
+    
+    delay(20);
+  }
+  else if(bs==0)  {
+     digitalWrite(in1, LOW);
+    digitalWrite(in2, HIGH);
+    delay(20);
+        
+  }
+  
+}
+
 ## CIRCUIT DIAGRAM:
+
+![WhatsApp Image 2023-05-02 at 13 57 47](https://user-images.githubusercontent.com/113590268/235617822-9d06874a-d3e7-4fa1-b5fd-616ee4923ec1.jpg)
+
 ## OUTPUT:
+
+![WhatsApp Image 2023-05-02 at 14 08 48](https://user-images.githubusercontent.com/113590268/235619643-5996131b-94cc-44dc-85c0-8e91c8ab326a.jpg)
+![WhatsApp Image 2023-05-02 at 14 08 48](https://user-images.githubusercontent.com/113590268/235620369-c68480e6-409d-4335-9d06-99437961c28c.jpg)
+![WhatsApp Image 2023-05-02 at 14 08 54](https://user-images.githubusercontent.com/113590268/235620426-37f70a1c-9c0c-4f27-82e1-10e40c6faefe.jpg)
+
 ## RESULT:
+
 Thus the motor was controlled using driver circuits, relays and Arduino UNO controller.
